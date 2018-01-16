@@ -42,8 +42,10 @@ class Request
 
         parse_str($_SERVER['QUERY_STRING'] ?? '', $query);
 
+        $uriComponents = parse_url($_SERVER['REQUEST_URI']);
+
         $request = new self(
-            $_SERVER['REQUEST_URI'],
+            $uriComponents['path'],
             $_SERVER['REQUEST_METHOD'],
             $headers,
             $query,
