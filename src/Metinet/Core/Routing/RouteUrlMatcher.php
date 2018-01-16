@@ -11,14 +11,14 @@ class RouteUrlMatcher implements UrlMatcher
 {
     private $routes = [];
 
-    public function __construct(array $routes)
+    public function __construct(RouteCollection $routes)
     {
         $this->routes = $routes;
     }
 
     public function match(Request $request): callable
     {
-        foreach ($this->routes as $route) {
+        foreach ($this->routes->all() as $route) {
             if ($request->getPath() === $route->getPath()
                 && \in_array($request->getMethod(), $route->getHttpMethod(), true)) {
 

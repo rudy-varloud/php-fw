@@ -11,7 +11,7 @@ class Route
     private $path;
     private $action;
 
-    public function __construct(array $httpMethod, string $path, callable $action)
+    public function __construct(array $httpMethod, string $path, $action)
     {
         $this->httpMethod = $httpMethod;
         $this->path = $path;

@@ -7,6 +7,7 @@ use Metinet\Core\Http\Response;
 use Metinet\Core\Routing\Route;
 use Metinet\Core\Routing\RouteUrlMatcher;
 use Metinet\Core\Routing\RouteNotFound;
+use Metinet\Core\Routing\JsonFileLoader;
 
 
 function retrieveMemberList(): Response {
@@ -32,13 +33,10 @@ function throwError($message): Response {
 
 $request = Request::createFromGlobals();
 
-$routes = [];
-$routes[] = new Route(['GET'], '/hello', 'sayHello');
-$routes[] = new Route(['GET'], '/students', 'retrieveMemberList');
-$routes[] = new Route(['GET'], '/candidates', 'retrieveMemberList');
-$routes[] = new Route(['GET'], '/students/sponsor', 'retrieveMemberList');
+$loader = new JsonFileLoader([__DIR__ . '/../conf/routing.json']);
 
-$routeUrlMatcher = new RouteUrlMatcher($routes);
+$routeUrlMatcher = new RouteUrlMatcher($loader->load());
+
 try {
     $action = $routeUrlMatcher->match($request);
     $response = call_user_func($action);
