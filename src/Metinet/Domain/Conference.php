@@ -6,7 +6,7 @@
  * Time: 11:20
  */
 
-namespace Metinet\Metier;
+namespace Metinet\Domain;
 
 use Metinet\Domain\DateDebut;
 use Metinet\Domain\Salle;
@@ -40,7 +40,7 @@ class Conference
      * @param $idOrganisateur
      * @param $nbPersonne
      */
-    public function __construct(int $id, string $nomReunion, string $description, array $objectif, string $typeEvenement, Salle $salle, string $ville, DateDebut $dateDebut, DateDebut $dateFin, int $idOrganisateur, int $nbPersonne, int $prix)
+    public function __construct(int $id, string $nomReunion, string $description, string $objectif, string $typeEvenement, Salle $salle, string $ville, DateDebut $dateDebut, DateDebut $dateFin, int $idOrganisateur, int $nbPersonne, int $prix)
     {
         $this->id = $id;
         $this->nomReunion = $nomReunion;
@@ -168,9 +168,8 @@ class Conference
         if(($this->nomReunion == null) || ($this->description == null) || ($this->objectif == null)){
             throw UnableToCreateMeeting::invalidField();
         }
-        return new self{
 
-        };
+        return new self;
     }
 
     public function checkTypeEvenement(){
