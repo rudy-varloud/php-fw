@@ -1,14 +1,14 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: lp
+ * Participant: lp
  * Date: 17/01/2018
  * Time: 11:20
  */
 
 namespace Metinet\Metier;
 
-use Metinet\Domain\DateOfMeeting;
+use Metinet\Domain\DateDebut;
 use Metinet\Domain\Salle;
 use Metinet\Domain\UnableToCreateMeeting;
 
@@ -39,7 +39,7 @@ class Conference
      * @param $idOrganisateur
      * @param $nbPersonne
      */
-    public function __construct(int $id, string $nomReunion, string $description, array $objectif, string $typeEvenement, Salle $salle, string $ville, DateOfMeeting $dateDebut, DateOfMeeting $dateFin, int $idOrganisateur, int $nbPersonne)
+    public function __construct(int $id, string $nomReunion, string $description, array $objectif, string $typeEvenement, Salle $salle, string $ville, DateDebut $dateDebut, DateDebut $dateFin, int $idOrganisateur, int $nbPersonne)
     {
         $this->id = $id;
         $this->nomReunion = $nomReunion;

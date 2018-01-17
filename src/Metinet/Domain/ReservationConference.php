@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: lp
+ * Participant: lp
  * Date: 17/01/2018
  * Time: 14:36
  */
@@ -14,8 +14,7 @@ class ReservationConference
     private $idReservation;
     private $idConference;
     private $nbPlaceDejaReserve;
-    private $prenom;
-    private $nom;
+    private $idUtilisateur;
 
     /**
      * ReservationConference constructor.
@@ -25,13 +24,11 @@ class ReservationConference
      * @param $prenom
      * @param $nom
      */
-    public function __construct($idReservation, $idConference, $nbPlaceDejaReserve, $prenom, $nom)
+    public function __construct(int $idReservation, int $idConference, int $nbPlaceDejaReserve)
     {
         $this->idReservation = $idReservation;
         $this->idConference = $idConference;
         $this->nbPlaceDejaReserve = $nbPlaceDejaReserve;
-        $this->prenom = $prenom;
-        $this->nom = $nom;
     }
 
     /**
@@ -61,21 +58,9 @@ class ReservationConference
     /**
      * @return mixed
      */
-    public function getPrenom()
-    {
-        return $this->prenom;
-    }
 
-    /**
-     * @return mixed
-     */
-    public function getNom()
-    {
-        return $this->nom;
-    }
-
-    public function addReservation(){
-
+    public function verifierDisponibilite(){
+        // Verifie si le nombre de place deja reserve est inférieur ou égale
     }
 
 
