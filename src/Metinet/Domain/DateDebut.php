@@ -23,7 +23,7 @@ class DateDebut
         $dateDebutAsDateTime = \DateTimeImmutable::createFromFormat('Y-m-d H:i:s', sprintf('%s 23:59:59', $dateDebut));
         if ($dateDebutAsDateTime < new \DateTimeImmutable('now')) {
 
-            throw InvaliddateDebut::mustNotBeInThePast();
+            throw InvalidateDateOfMeeting::mustNotBeInThePast();
         }
 
         $this->dateDebut = $dateDebutAsDateTime;

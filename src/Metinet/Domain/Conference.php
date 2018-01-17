@@ -25,6 +25,7 @@ class Conference
     private $dateFin;
     private $idOrganisateur;
     private $nbPersonne;
+    private $prix;
 
     /**
      * ReunionEleve constructor.
@@ -39,7 +40,7 @@ class Conference
      * @param $idOrganisateur
      * @param $nbPersonne
      */
-    public function __construct(int $id, string $nomReunion, string $description, array $objectif, string $typeEvenement, Salle $salle, string $ville, DateDebut $dateDebut, DateDebut $dateFin, int $idOrganisateur, int $nbPersonne)
+    public function __construct(int $id, string $nomReunion, string $description, array $objectif, string $typeEvenement, Salle $salle, string $ville, DateDebut $dateDebut, DateDebut $dateFin, int $idOrganisateur, int $nbPersonne, int $prix)
     {
         $this->id = $id;
         $this->nomReunion = $nomReunion;
@@ -52,6 +53,7 @@ class Conference
         $this->dateFin = $dateFin;
         $this->idOrganisateur = $idOrganisateur;
         $this->nbPersonne = $nbPersonne;
+        $this->prix = $prix;
     }
 
     /**
@@ -138,6 +140,11 @@ class Conference
         return $this->nbPersonne;
     }
 
+    public function getPrix()
+    {
+        return $this->prix;
+    }
+
     public function checkDates(){
         if(($this->dateDebut) < ($this->dateFin)){
             return 1;
@@ -155,6 +162,21 @@ class Conference
             return new self(
 
             );
+    }
+
+    public function checkChamps(){
+        if(($this->nomReunion == null) || ($this->description == null) || ($this->objectif == null)){
+            throw UnableToCreateMeeting::invalidField();
+        }
+        return new self{
+
+        };
+    }
+
+    public function checkTypeEvenement(){
+        if($this->typeEvenement == "Public"){
+            // On autorise les externes à s'inscrire
+        }
     }
 
 

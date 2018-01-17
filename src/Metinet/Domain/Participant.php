@@ -15,6 +15,7 @@ class Participant
     private $prenom;
     private $numeroTelephone;
     private $email;
+    private $typeCompte;
 
     /**
      * Participant constructor.
@@ -23,12 +24,14 @@ class Participant
      * @param $numeroTelephone
      * @param $email
      */
-    public function __construct(string $nom, string $prenom, int $numeroTelephone, string $email)
+    public function __construct(string $nom, string $prenom, int $numeroTelephone, string $email, string $typeCompte)
     {
         $this->nom = $nom;
         $this->prenom = $prenom;
         $this->numeroTelephone = $numeroTelephone;
         $this->email = $email;
+        $this->typeCompte = $typeCompte;
+
     }
 
     /**
@@ -61,6 +64,10 @@ class Participant
     public function getEmail()
     {
         return $this->email;
+    }
+
+    public function getTypeCompte(){
+        return $this->typeCompte;
     }
 
     public function verifEmail(){
