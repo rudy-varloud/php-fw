@@ -8,4 +8,4 @@
 
 `php -S 127.0.0.1:8000 -t public`
 
-## Projet cancereu de Rudy Varloud mais fais avec beaucoup d'amour
+## Projet pas parfait de Rudy Varloud mais fais avec beaucoup d'amour
