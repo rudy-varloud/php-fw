@@ -11,13 +11,17 @@ class Account
     private $id;
     private $mail;
     private $password;
+<<<<<<< HEAD
     private $password_hash;
+=======
+>>>>>>> master
 
     /**
      * Account constructor.
      * @param $mail
      * @param $password
      */
+<<<<<<< HEAD
     public function __construct(int $id, string $mail, Password $password, Password $password_hash)
     {
         $this->id = $id;
@@ -29,6 +33,12 @@ class Account
     public static function register($id, $mail, $password, $password_hash): self
     {
         return new self($id, $mail, $password, $password_hash);
+=======
+    public function __construct($mail, $password)
+    {
+        $this->mail = $mail;
+        $this->password = $password;
+>>>>>>> master
     }
 
     /**
@@ -47,6 +57,7 @@ class Account
         return $this->password;
     }
 
+<<<<<<< HEAD
     /**
      * @return mixed
      */
@@ -65,6 +76,8 @@ class Account
 
 
 
+=======
+>>>>>>> master
 
 
 

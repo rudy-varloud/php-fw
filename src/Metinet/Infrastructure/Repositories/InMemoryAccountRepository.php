@@ -21,10 +21,18 @@ class InMemoryAccountRepository implements AccountRepository
     public function get($username): Account
     {
         if (!isset($this->account[$username])) {
+<<<<<<< HEAD
             throw new AccountNotFound($username);
         }else if($this->account[$username]){
 
             return $this->account[$username];
         }
+=======
+
+            throw new AccountNotFound($username);
+        }
+
+        return $this->account[$username];
+>>>>>>> master
     }
 }

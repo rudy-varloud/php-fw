@@ -51,7 +51,11 @@
   "connection": {
     "path": "/connection",
     "methods": [
+<<<<<<< HEAD
       "GET"
+=======
+      "POST"
+>>>>>>> master
     ],
     "action": "Metinet:Controllers:AccountController::connection"
   }
