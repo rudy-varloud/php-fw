@@ -15,13 +15,4 @@ class UnableToCreateMeeting extends \Exception
             )
         );
     }
-
-    public static function invalidField()
-    {
-        return new self(
-            sprintf(
-                'Please fill all the field to create a meeting'
-            )
-        );
-    }
 }

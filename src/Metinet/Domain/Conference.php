@@ -1,14 +1,14 @@
 <?php
 /**
  * Created by PhpStorm.
- * Participant: lp
+ * User: lp
  * Date: 17/01/2018
  * Time: 11:20
  */
 
-namespace Metinet\Domain;
+namespace Metinet\Metier;
 
-use Metinet\Domain\DateDebut;
+use Metinet\Domain\DateOfMeeting;
 use Metinet\Domain\Salle;
 use Metinet\Domain\UnableToCreateMeeting;
 
@@ -25,7 +25,6 @@ class Conference
     private $dateFin;
     private $idOrganisateur;
     private $nbPersonne;
-    private $prix;
 
     /**
      * ReunionEleve constructor.
@@ -40,7 +39,7 @@ class Conference
      * @param $idOrganisateur
      * @param $nbPersonne
      */
-    public function __construct(int $id, string $nomReunion, string $description, string $objectif, string $typeEvenement, Salle $salle, string $ville, DateDebut $dateDebut, DateDebut $dateFin, int $idOrganisateur, int $nbPersonne, int $prix)
+    public function __construct(int $id, string $nomReunion, string $description, array $objectif, string $typeEvenement, Salle $salle, string $ville, DateOfMeeting $dateDebut, DateOfMeeting $dateFin, int $idOrganisateur, int $nbPersonne)
     {
         $this->id = $id;
         $this->nomReunion = $nomReunion;
@@ -53,7 +52,6 @@ class Conference
         $this->dateFin = $dateFin;
         $this->idOrganisateur = $idOrganisateur;
         $this->nbPersonne = $nbPersonne;
-        $this->prix = $prix;
     }
 
     /**
@@ -140,11 +138,6 @@ class Conference
         return $this->nbPersonne;
     }
 
-    public function getPrix()
-    {
-        return $this->prix;
-    }
-
     public function checkDates(){
         if(($this->dateDebut) < ($this->dateFin)){
             return 1;
@@ -162,20 +155,6 @@ class Conference
             return new self(
 
             );
-    }
-
-    public function checkChamps(){
-        if(($this->nomReunion == null) || ($this->description == null) || ($this->objectif == null)){
-            throw UnableToCreateMeeting::invalidField();
-        }
-
-        return new self;
-    }
-
-    public function checkTypeEvenement(){
-        if($this->typeEvenement == "Public"){
-            // On autorise les externes à s'inscrire
-        }
     }
 
 

@@ -20,7 +20,6 @@ $loader = new ChainLoader([
     new JsonFileLoader([__DIR__ . '/../conf/app.json']),
 ]);
 
-
 $config = new Configuration($loader);
 
 $logger = $config->getLogger();
