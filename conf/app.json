@@ -26,5 +26,12 @@
       ],
       "action": "Metinet:Controllers:CandidatesController::disBonjour"
     }
+  },
+  "connection": {
+    "path": "/connection",
+    "methods": [
+      "POST"
+    ],
+    "action": "Metinet:Controllers:AccountController::connection"
   }
 }
